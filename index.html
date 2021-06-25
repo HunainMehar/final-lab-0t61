@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Html CRUD with Pure JavaScript</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td>
+          <form
+            onsubmit="event.preventDefault();onFormSubmit();"
+            autocomplete="off"
+          >
+            <div>
+              <label>Team A*</label
+              ><label class="validation-error hide" id="fullNameValidationError"
+                >This field is required.</label
+              >
+              <input type="text" name="Team-A" id="fullName" />
+            </div>
+            <div>
+              <label>Team B</label>
+              <input type="text" name="Team-B" id="empCode" />
+            </div>
+            <div>
+              <label>Location</label>
+              <input type="text" name="Loaction" id="salary" />
+            </div>
+            <div>
+              <label>Date</label>
+              <input type="text" name="Date" id="city" />
+            </div>
+            <div class="form-action-buttons">
+              <input type="submit" value="Matching" />
+            </div>
+          </form>
+        </td>
+        <td>
+          <table class="list" id="employeeList">
+            <thead>
+              <tr>
+                <th>Team A</th>
+                <th>Team B</th>
+                <th>Locatin</th>
+                <th>Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <script src="./index.js"></script>
+  </body>
+</html>
