@@ -1,5 +1,5 @@
 {
-    "db": "mongodb://localhost/AbeerTech",
-    "jwtPrivateKey": "hello",
-    "myenvironment":"Development"
-  }
+  "db": "mongodb://localhost/LabTerminal",
+  "jwtPrivateKey": "hello",
+  "myenvironment": "Development"
+}

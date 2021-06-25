@@ -6,7 +6,6 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/api/users");
-var matchRouter = require("./routes/api/match");
 var pslTeamsRouter = require("./routes/api/pslTeams");
 
 
@@ -27,7 +26,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
-app.use("/api/match",matchRouter);
 app.use("/api/pslTeams",pslTeamsRouter);
 
 

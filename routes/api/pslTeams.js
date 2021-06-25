@@ -2,7 +2,8 @@ const express = require("express");
 let router = express.Router();
 const auth = require("../../middleWares/auth");
 const admin = require("../../middleWares/admin");
-const PSL = require("../../models/pslTeams")
+const PSL = require("../../models/pslTeams");
+const { response } = require("express");
 //get products
 router.get("/",async (req, res) => {
   console.log(req.user);
@@ -17,7 +18,7 @@ router.get("/:id", async (req, res) => {
   try {
     let pslTeams = await PSL.findById(req.params.id);
     if (!pslTeams)
-      return res.status(400).send("Product With given ID is not present"); //when id is not present id db
+      return res.status(400).send("Team With given ID is not present"); //when id is not present id db
     return res.send(pslTeams); //everything is ok
   } catch (err) {
     return res.status(400).send("Invalid ID"); // format of id is not correct
@@ -28,7 +29,8 @@ router.put("/:id",  async (req, res) => {
   let pslTeams = await PSL.findById(req.params.id);
   pslTeams.City = req.body.City;
   pslTeams.Date = req.body.Date;
-  pslTeams.TeamName = req.body.TeamName;
+  pslTeams.TeamA = req.body.TeamA;
+  pslTeams.TeamB = req.body.TeamB;
   await pslTeams.save();
   return res.send(pslTeams);
 });
@@ -42,7 +44,8 @@ router.post("/", async (req, res) => {
   let pslTeams = new PSL();
   pslTeams.City = req.body.City;
   pslTeams.Date = req.body.Date;
-  pslTeams.TeamName = req.body.TeamName;
+  pslTeams.TeamA = req.body.TeamA;
+  pslTeams.TeamB = req.body.TeamB;
   await pslTeams.save();
   return res.send(pslTeams);
 });
